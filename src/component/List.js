@@ -1,4 +1,4 @@
-import { duration } from "@mui/material";
+// import { duration } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,8 +7,24 @@ function List() {
   //     localStorage.getItem(JSON.parse("list") || [])
   //   );
   const navigate = useNavigate();
-  const candidate = JSON.parse(localStorage.getItem("list"));
-  console.log(candidate);
+  const [candidates, setcandidate] = useState(JSON.parse(localStorage.getItem("list")) ? JSON.parse(localStorage.getItem("list")) : []);
+  console.log(candidates);
+
+  const deleteItem = (index) => {
+
+    const lc = JSON.parse(localStorage.getItem("list"))
+
+    console.log(lc);
+    const newlc = lc.filter((data, ind) => ind !== index)
+    console.log(newlc);
+    setcandidate(newlc)
+
+
+    localStorage.setItem("list", JSON.stringify(newlc))
+
+
+  }
+
   return (
     <div>
       <div className="container my-4">
@@ -38,26 +54,33 @@ function List() {
                       <th>Total Work Experience (in months)</th>
                       <th>Actions</th>
                     </tr>
-                    {candidate.map((candi, index) => {
-                      return (
-                        <tr>
-                          <td>1</td>
-                          <td>{candidate[index].firstname}</td>
-                          <td>{candidate[index].Email} </td>
-                          <td>5</td>
-                          <td>
-                            {candidate[index].duration1}+
-                            {candidate[index].duration2}
-                          </td>
-                          <td>
-                            <a href="#">Edit</a>
-                            <a href="#" className="text-danger ms-2">
-                              Delete
-                            </a>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {
+                      candidates != "" && candidates.map((candi, index) => {
+
+                        return (
+                          <tr>
+                            <td>{index + 1}   </td>
+                            <td>{candi.firstname}  {candi.lastname}</td>
+                            <td>{candi.Email} </td>
+                            <td>{candi.skill.length}</td>
+                            <td>
+                              {
+                                candi.experiance.map((num) => Number(num.Duration))
+                                  .reduce((x, y) => x + y)
+
+                              }
+
+                            </td>
+                            <td>
+                              <a href="" onClick={() => navigate(`/Edit/${candi.id}`)}>Edit</a>
+
+                              <a className="text-danger ms-2" onClick={() => { deleteItem(index) }} >
+                                Delete
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </table>
                 </div>
               </div>
