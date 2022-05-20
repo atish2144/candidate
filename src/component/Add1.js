@@ -321,7 +321,7 @@ function Add1() {
                                 />
                             </div>
                         </div>
-
+                                    
                         <hr className="my-4" />
 
                         <h4 className="mb-3">Professional Info</h4>
@@ -334,7 +334,9 @@ function Add1() {
                                 </label>
                                 <div className="mb-3">
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" value={"Angular"} checked={data.skill.includes('Angular')} onChange={e => handleSkills(e.target.value)} />
+                                        <input className="form-check-input"
+                                        
+                                        type="checkbox" value={"Angular"} checked={data.skill.includes('Angular')} onChange={e => handleSkills(e.target.value)} />
 
                                         <label className="form-check-label">Angular</label>
                                     </div>

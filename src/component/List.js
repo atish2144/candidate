@@ -13,13 +13,10 @@ function List() {
   const deleteItem = (index) => {
 
     const lc = JSON.parse(localStorage.getItem("list"))
-
     console.log(lc);
     const newlc = lc.filter((data, ind) => ind !== index)
     console.log(newlc);
     setcandidate(newlc)
-
-
     localStorage.setItem("list", JSON.stringify(newlc))
 
 
@@ -72,7 +69,7 @@ function List() {
 
                             </td>
                             <td>
-                              <a href="" onClick={() => navigate(`/Edit/${candi.id}`)}>Edit</a>
+                              <a onClick={() => navigate(`/Edit/${candi.id}`)}>Edit</a>
 
                               <a className="text-danger ms-2" onClick={() => { deleteItem(index) }} >
                                 Delete
