@@ -145,9 +145,9 @@ function Add() {
                   placeholder="you@example.com"
                   value={data.Email}
                   onChange={(e) => setdata({ ...data, Email: e.target.value })}
-                  //   onChange={(e) => {
-                  //     handleEmail(e);
-                  //   }}
+                //   onChange={(e) => {
+                //     handleEmail(e);
+                //   }}
                 />
               </div>
 
@@ -217,12 +217,12 @@ function Add() {
                       className="form-check-input"
                       type="checkbox"
                       value={data.skill}
-                      //   onChange={(e) =>
-                      //     setdata({
-                      //       ...data,
-                      //       Angular: !data["Angular"],
-                      //     })
-                      //   }
+                    //   onChange={(e) =>
+                    //     setdata({
+                    //       ...data,
+                    //       Angular: !data["Angular"],
+                    //     })
+                    //   }
                     />
                     <label className="form-check-label">Angular</label>
                   </div>
