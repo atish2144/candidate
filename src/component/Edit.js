@@ -21,16 +21,11 @@ function Add1() {
 	const [data, setdata] = useState(candidate.find((data, index) => data.id === id));
 
 
-
-
 	console.log(data);
-
-
 
 	const handleSubmit = () => {
 
 		let index = candidate.findIndex((x) => x.id === id)
-
 		candidate.splice(index, 1, data);
 		localStorage.setItem("list", JSON.stringify(candidate))
 

@@ -14,13 +14,14 @@ function List() {
 
     const lc = JSON.parse(localStorage.getItem("list"))
     console.log(lc);
+
     const newlc = lc.filter((data, ind) => ind !== index)
     console.log(newlc);
+
     setcandidate(newlc)
     localStorage.setItem("list", JSON.stringify(newlc))
-
-
   }
+
 
   return (
     <div>

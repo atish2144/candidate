@@ -112,7 +112,8 @@ function Add1() {
           },
         ],
       });
-    } else {
+    }
+    else {
       alert("max 5 experiances");
     }
 
@@ -142,16 +143,19 @@ function Add1() {
 
   const handleExperiance = (e, index) => {
     console.log(e.target.value);
+    console.log(e.target.name);
     console.log(index);
 
     let arr = [...data.experiance];
+    console.log(arr);
+
     arr[index] = { ...arr[index], [e.target.name]: e.target.value };
     setdata({
       ...data,
       experiance: arr,
     });
 
-    // console.log(data.experiance[0].companyName);
+
   };
 
   return (
@@ -252,9 +256,9 @@ function Add1() {
                   placeholder="you@example.com"
                   value={data.Email}
                   onChange={(e) => setdata({ ...data, Email: e.target.value })}
-                  //   onChange={(e) => {
-                  //     handleEmail(e);
-                  //   }}
+                //   onChange={(e) => {
+                //     handleEmail(e);
+                //   }}
                 />
               </div>
 
@@ -412,69 +416,70 @@ function Add1() {
                   </strong>
                 </label>
 
-                {data.experiance.map((dat, index) => {
-                  return (
-                    <div key={dat.index} className="card mx-3 mt-3">
-                      <div className="card-body">
-                        <h6 className="card-title text-muted mb-3">
-                          Experience #{index + 1}
-                          <span
-                            style={{ cursor: "pointer" }}
-                            className="float-end text-danger fw-normal"
-                            onClick={() => removeExperience(index)}
-                          >
-                            Remove
-                          </span>
-                        </h6>
-                        <div className="row g-3">
-                          <div className="col-6">
-                            <label className="form-label">Company Name</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              value={data.companyName}
-                              name="companyName"
-                              onChange={(e) => handleExperiance(e, index)}
-                              required
-                            />
-                          </div>
-                          <div className="col-6">
-                            <label className="form-label">
-                              Duration{" "}
-                              <span className="text-muted">(in months)</span>
-                            </label>
-                            <input
-                              type="number"
-                              className="form-control"
-                              value={data.Duration}
-                              name="Duration"
-                              onChange={(e) => handleExperiance(e, index)}
-                              required
-                            />
-                          </div>
-                          <div className="col-12">
-                            <label className="form-label">
-                              Describe your responsibilities
-                            </label>
-                            <textarea
-                              className="form-control"
-                              value={data.responsibilities}
-                              name="responsibilities"
-                              onChange={(e) => handleExperiance(e, index)}
-                              // onChange={(e) => setdata({ ...data, experiance: data.experiance.map((dat, ind) => index === ind ? { responsibilities: e.target.value } : "") })}
+                {
+                  data.experiance.map((dat, index) => {
+                    return (
+                      <div key={dat.index} className="card mx-3 mt-3">
+                        <div className="card-body">
+                          <h6 className="card-title text-muted mb-3">
+                            Experience #{index + 1}
+                            <span
+                              style={{ cursor: "pointer" }}
+                              className="float-end text-danger fw-normal"
+                              onClick={() => removeExperience(index)}
+                            >
+                              Remove
+                            </span>
+                          </h6>
+                          <div className="row g-3">
+                            <div className="col-6">
+                              <label className="form-label">Company Name</label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                value={data.companyName}
+                                name="companyName"
+                                onChange={(e) => handleExperiance(e, index)}
+                                required
+                              />
+                            </div>
+                            <div className="col-6">
+                              <label className="form-label">
+                                Duration{" "}
+                                <span className="text-muted">(in months)</span>
+                              </label>
+                              <input
+                                type="number"
+                                className="form-control"
+                                value={data.Duration}
+                                name="Duration"
+                                onChange={(e) => handleExperiance(e, index)}
+                                required
+                              />
+                            </div>
+                            <div className="col-12">
+                              <label className="form-label">
+                                Describe your responsibilities
+                              </label>
+                              <textarea
+                                className="form-control"
+                                value={data.responsibilities}
+                                name="responsibilities"
+                                onChange={(e) => handleExperiance(e, index)}
+                                // onChange={(e) => setdata({ ...data, experiance: data.experiance.map((dat, ind) => index === ind ? { responsibilities: e.target.value } : "") })}
 
-                              // onChange={(e)=>{
-                              //     data.experiance.map((data,ind)=>{})
-                              // }}
+                                // onChange={(e)=>{
+                                //     data.experiance.map((data,ind)=>{})
+                                // }}
 
-                              required
-                            ></textarea>
+                                required
+                              ></textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
                 <a className="d-block mt-3" onClick={addExperience}>
                   Add more experience
                 </a>

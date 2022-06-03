@@ -6,8 +6,6 @@ function Component2() {
 			<button>
 				increment
 			</button>
-
-
 		</div>
 	)
 }
